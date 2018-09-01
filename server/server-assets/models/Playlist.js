@@ -1,8 +1,7 @@
 let mongoose = require('mongoose')
 let Schema = mongoose.Schema
-let ObjectId = Schema.Types.ObjectId
 
-let schemaName = 'Song'
+let schemaName = 'Playlist'
 
 let schema = new Schema({
     title: { type: String },
@@ -11,7 +10,6 @@ let schema = new Schema({
     price: { type: Number },
     preview: { type: String },
     id: { type: String },
-    playlistId: { type: ObjectId, ref: 'Playlist' }
 })
 
 module.exports = mongoose.model(schemaName, schema)
