@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>J A M T O W N </h1>
+    
 </template>
 
 <script>
