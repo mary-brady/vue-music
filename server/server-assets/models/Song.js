@@ -11,6 +11,7 @@ let schema = new Schema({
     price: { type: Number },
     preview: { type: String },
     id: { type: String },
+    albumArt: { type: String },
     playlistId: { type: ObjectId, ref: 'Playlist' }
 })
 

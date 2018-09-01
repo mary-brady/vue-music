@@ -7,6 +7,7 @@
       <button type="submit">Get Jams</button>
     </form>
     <Results />
+    <Playlist />
   </div>
 </template>
 
@@ -14,6 +15,7 @@
 // @ is an alias to /src
 import Results from "@/components/Results.vue";
 import Search from "@/components/Search.vue";
+import Playlist from "@/components/Playlist.vue";
 
 export default {
   name: "home",
@@ -36,7 +38,8 @@ export default {
   },
   components: {
     Results,
-    Search
+    Search,
+    Playlist
   }
 };
 </script>
