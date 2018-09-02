@@ -1,6 +1,6 @@
 <template>
   <div class="Results">
-    <h1>Results for {{search.searchQuery}}</h1>
+    <h1>Results for Search</h1>
     <div v-for="song in search" :key="song.id">
             <div class="card border-dark mb-3" style="width: 10rem;">
                 <img class="card-img-top" src="song.albumArt" alt="album art">
@@ -16,6 +16,7 @@
                         <i>{{song.albumName}}</i>
                     </p>
                     <p class="card-text">${{song.price}}</p>
+                    <button @click="addSong">Add to Playlist</button>
                 </div>
             </div>
         </div>
@@ -28,12 +29,11 @@ export default {
   props: {
     msg: String
   },
-  computed: {
-    search() {
-      return this.$store.newSearch.results;
-    }
-  },
+  computed: {},
   methods: {
+    search() {
+      return this.$store.state.newSearch.results;
+    },
     addSong(song) {
       this.$store.dispatch("addSong", song);
     }

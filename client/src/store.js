@@ -5,7 +5,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 let musicApi = Axios.create({
-  baseURL: ('//itunes.apple.com/search?callback=?&term='),
+  baseURL: ('https://itunes.apple.com/search?term='),
   timeout: 3000
 })
 
@@ -13,18 +13,18 @@ let api = Axios.create({
   baseURL: "//localhost:3000/api/",
   timeout: 3000
 })
-
+//RESULTS ARE NOT DRAWING CONSIDER PUTTING THE NEWSEARCH OBJECT IN RESULTS VUE
 export default new Vuex.Store({
   state: {
     playlist: [],
     newSearch: {
       searchQuery: '',
-      results: {}
+      searchResults: {}
     }
   },
   mutations: {
     getResults(state, data) {
-      (state.newSearch.results = data)
+      (state.newSearch.searchResults = data)
     },
     addToPlaylist(state, data) {
       (state.playlist = data)
@@ -32,15 +32,16 @@ export default new Vuex.Store({
 
   },
   actions: {
+    //this action needs to map() the itunes API result which is an array
     search({ commit }, searchQuery) {
       musicApi.get('' + searchQuery)
         .then(res => {
-          console.log(res)
-          commit('getResults', res.data)
+          console.log(res.data.results)
+          commit('getResults', res.data.results)
         })
     },
     addSong({ commit }, songInfo) {
-      api.post('', songInfo)
+      api.post('playlist/', songInfo)
         .then(res => {
           commit('addToPlaylist', res.data)
         })

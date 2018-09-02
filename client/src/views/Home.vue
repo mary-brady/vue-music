@@ -28,12 +28,12 @@ export default {
   },
   computed: {
     results() {
-      return this.$store.state.Results;
+      return this.$store.state.newSearch.searchResults;
     }
   },
   methods: {
     search() {
-      this.$store.dispatch("search", this.newSearch);
+      this.$store.dispatch("search", this.newSearch.searchQuery);
     }
   },
   components: {
