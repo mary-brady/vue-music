@@ -24,7 +24,7 @@ export default new Vuex.Store({
       (state.results = data)
     },
     addToPlaylist(state, data) {
-      (state.playlist = data)
+      (state.results = data)
     }
 
   },

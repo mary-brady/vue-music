@@ -7,7 +7,7 @@
       <button type="submit">Get Jams</button>
     </form>
     <Results />
-    <Playlist />
+    <Playlists />
   </div>
 </template>
 
@@ -15,7 +15,7 @@
 // @ is an alias to /src
 import Results from "@/components/Results.vue";
 import Search from "@/components/Search.vue";
-import Playlist from "@/components/Playlist.vue";
+import Playlists from "@/components/Playlists.vue";
 
 export default {
   name: "home",
@@ -33,13 +33,13 @@ export default {
   },
   methods: {
     search() {
-      this.$store.dispatch("getResults", this.newSearch);
+      this.$store.dispatch("search", this.newSearch);
     }
   },
   components: {
     Results,
     Search,
-    Playlist
+    Playlists
   }
 };
 </script>

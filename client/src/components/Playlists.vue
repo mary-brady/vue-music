@@ -1,12 +1,12 @@
 <template>
-    <div class="playlist">
+    <div class="playlists">
         <h2>Your Songs</h2>
         <div v-for="song in myPlaylist" :key="song.id">
             <div class="card border-dark mb-3" style="width: 10rem;">
                 <img class="card-img-top" src="song.albumArt" alt="album art">
                 <div class="card body card-body">
                     <audio controls>
-                        <source src="{{song.preview}}" type="audio/mpeg">
+                        <source src="song.preview" type="audio/mpeg">
                     </audio>
                     <h5>
                         <b>{{song.title}}</b>
@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  name: "Playlist",
+  name: "Playlists",
   props: {
     msg: String
   },
