@@ -7,7 +7,7 @@ let schemaName = 'Song'
 let schema = new Schema({
     title: { type: String },
     artist: { type: String },
-    collection: { type: String },
+    albumName: { type: String },
     price: { type: Number },
     preview: { type: String },
     id: { type: String },

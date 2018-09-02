@@ -1,5 +1,7 @@
 <template>
   <div class="search">
+    <h2>why do I have search here?</h2>
+    </div>
     
 </template>
 

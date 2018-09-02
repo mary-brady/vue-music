@@ -13,7 +13,7 @@
                     </h5>
                     <h6 class="artist-text">{{song.artist}}</h6>
                     <p class="card-text">
-                        <i>{{song.collection}}</i>
+                        <i>{{song.albumName}}</i>
                     </p>
                     <p class="card-text">${{song.price}}</p>
                 </div>

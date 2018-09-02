@@ -17,14 +17,17 @@ let api = Axios.create({
 export default new Vuex.Store({
   state: {
     playlist: [],
-    results: {}
+    newSearch: {
+      searchQuery: '',
+      results: {}
+    }
   },
   mutations: {
     getResults(state, data) {
-      (state.results = data)
+      (state.newSearch.results = data)
     },
     addToPlaylist(state, data) {
-      (state.results = data)
+      (state.playlist = data)
     }
 
   },
@@ -40,7 +43,6 @@ export default new Vuex.Store({
       api.post('', songInfo)
         .then(res => {
           commit('addToPlaylist', res.data)
-
         })
     }
   }
