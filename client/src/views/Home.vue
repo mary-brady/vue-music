@@ -3,7 +3,7 @@
     <Search />
     <h1>J A M T O W N </h1>
     <form @submit.prevent="search">
-      <input type="text" placeholder="Search for Jams">
+      <input type="text" placeholder="Search for Jams" v-model="newSearch.searchQuery">
       <button type="submit">Get Jams</button>
     </form>
     <Results />

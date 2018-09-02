@@ -10,7 +10,7 @@ let musicApi = Axios.create({
 })
 
 let api = Axios.create({
-  baseURL: "//localhost:3000",
+  baseURL: "//localhost:3000/api/",
   timeout: 3000
 })
 
