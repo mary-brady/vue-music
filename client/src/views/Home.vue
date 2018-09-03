@@ -1,13 +1,20 @@
 <template>
-  <div class="home">
-    <Search />
+  <div class="home container-fluid">
+    <div class="row">
+      <div class="col-lg">
     <h1>J A M T O W N </h1>
     <form @submit.prevent="search">
       <input type="text" placeholder="Search for Jams" v-model="newSearch.searchQuery">
       <button type="submit">Get Jams</button>
     </form>
+    </div>
+    </div>
+    <div class="row">
     <Results />
+    <div class="row">
     <Playlists />
+    </div>
+  </div>
   </div>
 </template>
 

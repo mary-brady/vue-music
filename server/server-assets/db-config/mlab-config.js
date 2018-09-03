@@ -5,7 +5,7 @@ let connection = mongoose.connection
 mongoose.connect(connectionString, { useMongoClient: true })
 
 connection.on('error', err => {
-    console.log('Erro from database: ', err)
+    console.log('Error from database: ', err)
 })
 
 connection.once('open', () => {

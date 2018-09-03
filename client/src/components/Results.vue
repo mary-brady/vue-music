@@ -1,12 +1,13 @@
 <template>
   <div class="Results">
-    <h1>Results for Search</h1>
+    <h1>Results:</h1>
     <div v-for="(song, index) in search" :key="index">
-            <div class="card border-dark mb-3" style="width: 10rem;">
+      <div class="col-md text-center justify-content-center">
+            <div class="card border-dark mb-3" style="width: 12rem;">
                 <img class="card-img-top" :src="song.artworkUrl100" alt="album art">
                 <div class="card body card-body">
                     <audio controls>
-                        <source src="song.previewUrl" type="audio/mpeg">
+                        <source :src="song.previewUrl" type="audio/mpeg">
                     </audio>
                     <h5>
                         <b>{{song.trackName}}</b>
@@ -18,6 +19,7 @@
                     <p class="card-text">${{song.trackPrice}}</p>
                     <button @click="addSong">Add to Playlist</button>
                 </div>
+            </div>
             </div>
         </div>
   </div>
