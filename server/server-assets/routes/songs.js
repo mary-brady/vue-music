@@ -1,7 +1,7 @@
 let router = require('express').Router()
 let Songs = require('../models/Song')
 
-router.post('api/songs', (req, res) => {
+router.post('/', (req, res) => {
     Songs.create(req.body)
         .then(newSong => {
             res.status(200).send(newSong)

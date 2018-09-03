@@ -7,7 +7,7 @@ let port = 3000
 server.use(cors())
 
 //connect to db
-require('./server/server-assets/db-config/mlab-config')
+require('./server-assets/db-config/mlab-config')
 
 //register middleware
 server.use(bp.json())
@@ -15,8 +15,8 @@ server.use(bp.urlencoded({
     extended: true
 }))
 
-let songRoute = require('./server/server-assets/routes/songs')
-let playlistRoute = require('./server/server-assets/routes/playlists')
+let songRoute = require('./server-assets/routes/songs')
+let playlistRoute = require('./server-assets/routes/playlists')
 
 server.use('/api/songs', songRoute)
 server.use('/api/playlist', playlistRoute)
