@@ -1,21 +1,21 @@
 <template>
   <div class="Results">
     <h1>Results for Search</h1>
-    <div v-for="song in search" :key="song.id">
+    <div v-for="(song, index) in search" :key="index">
             <div class="card border-dark mb-3" style="width: 10rem;">
-                <img class="card-img-top" src="song.albumArt" alt="album art">
+                <img class="card-img-top" :src="song.artworkUrl100" alt="album art">
                 <div class="card body card-body">
                     <audio controls>
-                        <source src="song.preview" type="audio/mpeg">
+                        <source src="song.previewUrl" type="audio/mpeg">
                     </audio>
                     <h5>
-                        <b>{{song.title}}</b>
+                        <b>{{song.trackName}}</b>
                     </h5>
-                    <h6 class="artist-text">{{song.artist}}</h6>
+                    <h6 class="artist-text">{{song.artistName}}</h6>
                     <p class="card-text">
-                        <i>{{song.albumName}}</i>
+                        <i>{{song.collectionName}}</i>
                     </p>
-                    <p class="card-text">${{song.price}}</p>
+                    <p class="card-text">${{song.trackPrice}}</p>
                     <button @click="addSong">Add to Playlist</button>
                 </div>
             </div>
@@ -29,11 +29,12 @@ export default {
   props: {
     msg: String
   },
-  computed: {},
-  methods: {
+  computed: {
     search() {
-      return this.$store.state.newSearch.results;
-    },
+      return this.$store.state.newSearch.searchResults;
+    }
+  },
+  methods: {
     addSong(song) {
       this.$store.dispatch("addSong", song);
     }

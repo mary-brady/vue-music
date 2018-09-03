@@ -32,7 +32,6 @@ export default new Vuex.Store({
 
   },
   actions: {
-    //this action needs to map() the itunes API result which is an array
     search({ commit }, searchQuery) {
       musicApi.get('' + searchQuery)
         .then(res => {
