@@ -2,6 +2,7 @@
     <div class="playlists">
         <h2>Your Songs</h2>
         <div v-for="(song, index) in myPlaylist" :key="index">
+          {{song._id}}
             <div class="card border-dark mb-3" style="width: 10rem;">
                 <img class="card-img-top" :src="song.albumArt" alt="album art">
                 <div class="card body card-body">

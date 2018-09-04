@@ -1,6 +1,5 @@
 let router = require('express').Router()
 let Playlist = require('../models/Playlist')
-let Songs = require('../models/Song')
 
 router.post('/', (req, res, next) => {
     Playlist.create(req.body)

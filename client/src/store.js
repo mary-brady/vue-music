@@ -27,10 +27,19 @@ export default new Vuex.Store({
     },
     addToPlaylist(state, data) {
       (state.playlist = data)
+      console.log('addToPlaylist: ', data)
+    },
+    setPlaylist(state, data) {
+      (state.playlist = data)
     }
-
   },
   actions: {
+    getPlaylist({ commit }, id) {
+      api.get('playlists/', id)
+        .then(res => {
+          commit('setPlaylist')
+        })
+    },
     search({ commit }, searchQuery) {
       musicApi.get('' + searchQuery)
         .then(res => {
@@ -39,8 +48,11 @@ export default new Vuex.Store({
         })
     },
     addSong({ commit }, songInfo) {
-      console.log('song info: ', songInfo)
-      commit('addToPlaylist', songInfo)
+      api.post('playlists/', songInfo)
+        .then(res => {
+          commit('addToPlaylist', res)
+          console.log('res: ', res)
+        })
     }
   }
 })
@@ -49,3 +61,4 @@ export default new Vuex.Store({
 //   .then(res => {
 //     console.log(res)
 //     commit('addToPlaylist', res)
+// dispatch('getPlaylist', state.playlist)
