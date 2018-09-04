@@ -11,4 +11,10 @@ router.post('/', (req, res) => {
         })
 })
 
+router.get('/', (req, res, next) => {
+    Songs.find({})
+        .then(songs => res.send(songs))
+        .catch(next)
+})
+
 module.exports = router

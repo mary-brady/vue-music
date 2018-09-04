@@ -19,14 +19,10 @@ let songRoute = require('./server-assets/routes/songs')
 let playlistRoute = require('./server-assets/routes/playlists')
 
 server.use('/api/songs', songRoute)
-server.use('/api/playlist', playlistRoute)
+server.use('/api/playlists', playlistRoute)
 
 server.use('/api/*', (error, req, res, next) => {
     res.send(error)
-})
-
-server.use('*', (req, res, next) => {
-    res.status(404).send('<p>Not a real page</p>')
 })
 
 server.listen(port, () => {

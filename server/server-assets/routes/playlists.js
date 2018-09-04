@@ -8,7 +8,13 @@ router.post('playlist/', (req, res, next) => {
         .catch(next)
 })
 
-router.delete('playlist/songs/:songId', (req, res, next) => {
+router.get('/', (req, res, next) => {
+    Playlist.find({})
+        .then(playlist => res.send(playlist))
+        .catch(next)
+})
+
+router.delete('/songs/:songId', (req, res, next) => {
     Songs.findByIdAndRemove(req.params.songId)
         .then(() => res.send({
             message: "song delorted!"

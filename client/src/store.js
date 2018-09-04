@@ -13,7 +13,6 @@ let api = Axios.create({
   baseURL: "//localhost:3000/api/",
   timeout: 3000
 })
-//RESULTS ARE NOT DRAWING CONSIDER PUTTING THE NEWSEARCH OBJECT IN RESULTS VUE
 export default new Vuex.Store({
   state: {
     playlist: [],
@@ -40,7 +39,7 @@ export default new Vuex.Store({
         })
     },
     addSong({ commit }, songInfo) {
-      api.post('playlist/', songInfo)
+      api.post('playlists/', songInfo)
         .then(res => {
           commit('addToPlaylist', res.data)
         })
