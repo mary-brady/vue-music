@@ -1,14 +1,10 @@
 let router = require('express').Router()
 let Songs = require('../models/Song')
 
-router.post('/', (req, res) => {
+router.post('/', (req, res, next) => {
     Songs.create(req.body)
-        .then(newSong => {
-            res.status(200).send(newSong)
-        })
-        .catch(err => {
-            res.status(400).send(err)
-        })
+        .then(newSong => res.send(newSong))
+        .catch(next)
 })
 
 router.get('/', (req, res, next) => {
@@ -17,4 +13,11 @@ router.get('/', (req, res, next) => {
         .catch(next)
 })
 
+router.delete('/:id', (req, res, next) => {
+    Songs.findByIdAndRemove(req.params.id)
+        .then(() => res.send({
+            message: 'Song gone'
+        }))
+        .catch(next)
+})
 module.exports = router
