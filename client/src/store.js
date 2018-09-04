@@ -48,7 +48,7 @@ export default new Vuex.Store({
         })
     },
     addSong({ commit }, songInfo) {
-      api.post('playlists/', songInfo)
+      api.post('songs/', songInfo)
         .then(res => {
           commit('addToPlaylist', res)
           console.log('res: ', res)
@@ -56,9 +56,3 @@ export default new Vuex.Store({
     }
   }
 })
-
-// api.post('songs/', songInfo)
-//   .then(res => {
-//     console.log(res)
-//     commit('addToPlaylist', res)
-// dispatch('getPlaylist', state.playlist)

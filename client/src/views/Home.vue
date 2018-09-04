@@ -12,7 +12,9 @@
     <div class="row">
     <Results />
     <div class="row">
+      <div class="col-md">
     <Playlists />
+    </div>
     </div>
   </div>
   </div>
