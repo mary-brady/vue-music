@@ -36,7 +36,7 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    getPlaylist({ commit }, id) {
+    getPlaylist({ commit }) {
       api.get('songs/')
         .then(res => {
           commit('setPlaylist', res.data)
@@ -57,9 +57,14 @@ export default new Vuex.Store({
         })
     },
     removeSong({ commit }, songInfo) {
-      api.delete('songs/:id', songInfo)
+      api.delete(`songs/${songInfo._id}`, songInfo)
         .then(res => {
-          commit('removeSong', res.data)
+          console.log(res)
+          api.get('songs/')
+            .then(res => {
+              commit('setPlaylist', res.data)
+            })
+          console.log(res.data)
         })
     }
   }

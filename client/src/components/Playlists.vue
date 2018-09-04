@@ -42,6 +42,7 @@ export default {
       this.$store.dispatch("addSong", song);
     },
     removeSong(song) {
+      console.log(song);
       this.$store.dispatch("removeSong", song);
     }
   }
