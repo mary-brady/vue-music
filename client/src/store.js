@@ -39,8 +39,9 @@ export default new Vuex.Store({
         })
     },
     addSong({ commit }, songInfo) {
-      api.post('playlists/', songInfo)
+      api.post('songs/', songInfo)
         .then(res => {
+          console.log(res)
           commit('addToPlaylist', res.data)
         })
     }

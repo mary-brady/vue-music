@@ -30,7 +30,7 @@ export default {
   },
   computed: {
     myPlaylist() {
-      return this.$store.state.myPlaylist;
+      return this.$store.state.playlist;
     }
   },
   methods: {

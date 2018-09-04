@@ -17,7 +17,7 @@
                         <i>{{song.collectionName}}</i>
                     </p>
                     <p class="card-text">${{song.trackPrice}}</p>
-                    <button @click="addSong">Add to Playlist</button>
+                    <button @click="addSong(song)">Add to Playlist</button>
                 </div>
             </div>
             </div>
