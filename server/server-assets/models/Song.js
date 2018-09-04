@@ -10,7 +10,6 @@ let schema = new Schema({
     collectionName: { type: String },
     trackPrice: { type: Number },
     previewUrl: { type: String },
-    id: { type: String },
     artworkUrl100: { type: String },
     playlistId: { type: ObjectId, ref: 'Playlist' }
 })

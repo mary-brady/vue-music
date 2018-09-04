@@ -26,18 +26,20 @@ export default new Vuex.Store({
       (state.newSearch.searchResults = data)
     },
     addToPlaylist(state, data) {
-      (state.playlist = data)
-      console.log('addToPlaylist: ', data)
+      state.playlist.push(data)
     },
     setPlaylist(state, data) {
       (state.playlist = data)
+    },
+    removeSong(state, data) {
+      state.playlist = data
     }
   },
   actions: {
     getPlaylist({ commit }, id) {
-      api.get('playlists/', id)
+      api.get('songs/')
         .then(res => {
-          commit('setPlaylist')
+          commit('setPlaylist', res.data)
         })
     },
     search({ commit }, searchQuery) {
@@ -47,11 +49,17 @@ export default new Vuex.Store({
           commit('getResults', res.data.results)
         })
     },
-    addSong({ commit }, songInfo) {
+    addSong({ commit, dispatch }, songInfo) {
       api.post('songs/', songInfo)
         .then(res => {
-          commit('addToPlaylist', res)
+          commit('addToPlaylist', res.data)
           console.log('res: ', res)
+        })
+    },
+    removeSong({ commit }, songInfo) {
+      api.delete('songs/:id', songInfo)
+        .then(res => {
+          commit('removeSong', res.data)
         })
     }
   }

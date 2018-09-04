@@ -2,21 +2,21 @@
     <div class="playlists">
         <h2>Your Songs</h2>
         <div v-for="(song, index) in myPlaylist" :key="index">
-          {{song._id}}
-            <div class="card border-dark mb-3" style="width: 10rem;">
-                <img class="card-img-top" :src="song.albumArt" alt="album art">
+            <div class="card border-dark mb-3" style="width: 12rem;">
+                <img class="card-img-top" :src="song.artworkUrl100" alt="album art">
                 <div class="card body card-body">
                     <audio controls>
                         <source :src="song.previewUrl" type="audio/mpeg">
                     </audio>
                     <h5>
-                        <b>{{song.title}}</b>
+                        <b>{{song.trackName}}</b>
                     </h5>
-                    <h6 class="artist-text">{{song.artist}}</h6>
+                    <h6 class="artist-text">{{song.artistName}}</h6>
                     <p class="card-text">
                         <i>{{song.albumName}}</i>
                     </p>
-                    <p class="card-text">${{song.price}}</p>
+                    <p class="card-text">${{song.trackPrice}}</p>
+                    <button @click="removeSong(song)">Remove</button>
                 </div>
             </div>
         </div>
@@ -29,6 +29,9 @@ export default {
   props: {
     msg: String
   },
+  mounted() {
+    this.$store.dispatch("getPlaylist");
+  },
   computed: {
     myPlaylist() {
       return this.$store.state.playlist;
@@ -37,6 +40,9 @@ export default {
   methods: {
     addToPlaylist(song) {
       this.$store.dispatch("addSong", song);
+    },
+    removeSong(song) {
+      this.$store.dispatch("removeSong", song);
     }
   }
 };
