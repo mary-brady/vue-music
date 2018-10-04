@@ -1,22 +1,22 @@
 <template>
   <div class="home container-fluid">
     <div class="row">
-      <div class="col-lg">
+      <div class="col-md-12">
     <h1>J A M T O W N </h1>
     <form @submit.prevent="search">
       <input type="text" placeholder="Search for Jams" v-model="newSearch.searchQuery">
       <button type="submit">Get Jams</button>
     </form>
-    </div>
-    </div>
-    <div class="row">
+        </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
     <Results />
-    <div class="row">
-      <div class="col-md">
+    </div>
+    <div class="col-6">
     <Playlists />
     </div>
     </div>
-  </div>
   </div>
 </template>
 

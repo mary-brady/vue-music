@@ -1,6 +1,6 @@
 <template>
   <div class="Results">
-    <h1>Results:</h1>
+    <h1>Results: {{search.length}}</h1>
     <div v-for="(song, index) in search" :key="index">
       <div class="col-md text-center justify-content-center">
             <div class="card border-dark mb-3" style="width: 12rem;">

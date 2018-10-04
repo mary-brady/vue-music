@@ -52,18 +52,20 @@ export default new Vuex.Store({
     addSong({ commit, dispatch }, songInfo) {
       api.post('songs/', songInfo)
         .then(res => {
-          commit('addToPlaylist', res.data)
+          //commit('addToPlaylist', res.data)
+          dispatch("getPlaylist")
           console.log('res: ', res)
         })
     },
-    removeSong({ commit }, songInfo) {
+    removeSong({ commit, dispatch }, songInfo) {
       api.delete(`songs/${songInfo._id}`, songInfo)
         .then(res => {
           console.log(res)
-          api.get('songs/')
-            .then(res => {
-              commit('setPlaylist', res.data)
-            })
+          // api.get('songs/')
+          //   .then(res => {
+          //     commit('setPlaylist', res.data)
+          //   })
+          dispatch("getPlaylist")
           console.log(res.data)
         })
     }
