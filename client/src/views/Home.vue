@@ -2,7 +2,7 @@
   <div class="home container-fluid">
     <div class="row">
       <div class="col-md-12">
-    <h1>J A M T O W N </h1>
+    <h1><i class="fas fa-music"></i> &nbsp; J A M T O W N  &nbsp; <i class="fas fa-music"></i></h1>
     <form @submit.prevent="search">
       <input type="text" placeholder="Search for Jams" v-model="newSearch.searchQuery">
       <button type="submit">Get Jams</button>
@@ -52,3 +52,9 @@ export default {
   }
 };
 </script>
+<style scoped>
+i {
+  color: black;
+}
+</style>
+

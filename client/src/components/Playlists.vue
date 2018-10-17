@@ -2,7 +2,8 @@
     <div class="playlists container-fluid">
       <div class="row">
         <div class="col-md-6 offset-md-3 text-center">
-        <h2>Your Songs</h2>
+        <h1>Your Songs</h1>
+        <hr />
         </div>
         </div>
       <div class="row justify-content-center">
